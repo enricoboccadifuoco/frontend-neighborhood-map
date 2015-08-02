@@ -23,3 +23,9 @@
     ``` bash
     grunt concat
     ```
+
+1. jshint task
+
+    ``` bash
+    grunt jshint
+    ```
