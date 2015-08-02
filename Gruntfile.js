@@ -1,6 +1,5 @@
 module.exports = function(grunt) {
 
-    // Project configuration.
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         concat: {
@@ -9,13 +8,13 @@ module.exports = function(grunt) {
             },
             dist: {
                 src: ['src/js/services/*.js', 'src/js/model/*.js', 'src/js/*.js'],
-                dest: 'build/js/main.js'
+                dest: 'build/main.js'
             }
         },
         uglify: {
             dist: {
-                src: ['build/js/main.js'],
-                dest: 'build/js/main.min.js'
+                src: ['build/main.js'],
+                dest: 'build/main.min.js'
             }
         }
     });
