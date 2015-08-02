@@ -1,4 +1,7 @@
-// model
+/**
+ *  Place model
+ *	populate function, nyt and wikipedia services to populate data
+ */
 var Place = function(place) {
 	var self = this;
 
@@ -28,7 +31,7 @@ var Place = function(place) {
                     title: article.headline.main,
                     text: article.snippet
                 });
-            };
+            }
 
             var articleList = response2[0][1];
 
@@ -45,7 +48,7 @@ var Place = function(place) {
         });
 
         return deferred;
-    }
+    };
 
     return self;
 };

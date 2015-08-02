@@ -16,13 +16,18 @@ module.exports = function(grunt) {
                 src: ['build/main.js'],
                 dest: 'build/main.min.js'
             }
+        },
+        jshint: {
+            beforeconcat: ['src/**/*.js'],
+            afterconcat: ['build/main.js']
         }
     });
 
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-jshint');
 
     // Default task(s).
-    grunt.registerTask('default', ['concat', 'uglify']);
+    grunt.registerTask('default', ['concat', 'uglify', 'jshint']);
 
 };

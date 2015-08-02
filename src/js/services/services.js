@@ -1,3 +1,8 @@
+/**
+ *  Ajax Services, nyTimesService
+ *
+ *  @return promise
+ */
 var nyTimesService = function(search) {
 
     if (search) {
@@ -6,8 +11,13 @@ var nyTimesService = function(search) {
     }
 
     return false;
-}
+};
 
+/**
+ *  Ajax Services, wikiSerivice
+ *
+ *  @return promise
+ */
 var wikiSerivice = function(search) {
 
     if (search) {
@@ -19,4 +29,4 @@ var wikiSerivice = function(search) {
     }
 
     return false;
-}
+};

@@ -1,3 +1,8 @@
+/*jshint loopfunc: true */
+
+/**
+ *  Map options
+ */
 var map,
     infowindow,
     center = {
@@ -15,6 +20,9 @@ var map,
         mapTypeId: google.maps.MapTypeId.ROADMAP
     };
 
+/**
+ *  View, render marker infowindow
+ */
 var View = {
     renderPlace: function(place) {
         var str = '<h3>' + place.name + '</h3>';
@@ -41,9 +49,12 @@ var View = {
         infowindow.setContent(str);
         infowindow.open(map, place.marker);
     }
-}
+};
 
-//octopus
+/**
+ *  ViewModel, octopus
+ *  initalization maps and filtering functionality
+ */
 var ViewModel = function(){
     var self = this;
 
@@ -92,7 +103,7 @@ var ViewModel = function(){
 		        }
 		    }
 	    });
-    }
+    };
 
     this.filteredPlaces = ko.computed(function() {
         if(self.filter().length <= 0) {
