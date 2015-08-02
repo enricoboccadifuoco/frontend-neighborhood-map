@@ -29,3 +29,6 @@
     ``` bash
     grunt jshint
     ```
+
+#### Online version
+    http://enricoboccadifuoco.github.io/frontend-neighborhood-map
