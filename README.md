@@ -29,3 +29,15 @@
     ``` bash
     grunt jshint
     ```
+
+1. cssmin task
+
+    ``` bash
+    grunt cssmin
+    ```
+
+1. htmlmin task
+
+    ``` bash
+    grunt htmlmin
+    ```
