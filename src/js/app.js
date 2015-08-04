@@ -3,6 +3,7 @@
 /**
  *  Map options
  */
+
 var map,
     infowindow,
     center = {
@@ -19,6 +20,11 @@ var map,
         draggable: true,
         mapTypeId: google.maps.MapTypeId.ROADMAP
     };
+
+/**
+ *  Offline
+ */
+var heyOffline = new Heyoffline();
 
 /**
  *  View, render marker infowindow
@@ -60,6 +66,11 @@ var ViewModel = function(){
 
     self.filter = ko.observable("");
     self.places = ko.observableArray([]);
+    self.searchBarStatus = ko.observable(false);
+
+    self.changeSearchBarStatus = function() {
+        self.searchBarStatus(!self.searchBarStatus());
+    };
 
     this.init = function() {
     	map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
@@ -79,6 +90,7 @@ var ViewModel = function(){
 
                     (function(p) {
                         google.maps.event.addListener(p.marker, 'click', function() {
+                            self.searchBarStatus(false);
                             infowindow.setContent("loading");
                             infowindow.open(map, p.marker);
 
@@ -90,6 +102,7 @@ var ViewModel = function(){
 
                     place.focus = (function(place) {
                         return function () {
+                            self.searchBarStatus(false);
                             infowindow.setContent("loading");
                             infowindow.open(map, place.marker);
 
@@ -105,7 +118,7 @@ var ViewModel = function(){
 	    });
     };
 
-    this.filteredPlaces = ko.computed(function() {
+    self.filteredPlaces = ko.computed(function() {
         if(self.filter().length <= 0) {
             return self.places();
         } else {
@@ -117,6 +130,27 @@ var ViewModel = function(){
 
     // main
     this.init();
+
+    /*
+     *  key binding cmd+f to open sidebar list
+     */
+    $(document).keydown(function(e) {
+        if (e.metaKey && e.which === 70) {
+            e.preventDefault();
+            self.searchBarStatus(!self.searchBarStatus());
+        }
+    });
+};
+
+ko.bindingHandlers.koFocus = {
+    update: function (element, valueAccessor) {
+        var value = valueAccessor();
+        var $element = $(element);
+
+        if (value()) {
+            $element.focus();
+        }
+    }
 };
 
 ko.applyBindings(new ViewModel());

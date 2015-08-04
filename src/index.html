@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Neighborhood map</title>
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+		<meta charset="utf-8">
+
+		<script src="/bower_components/Heyoffline/heyoffline.js"></script>
+        <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="/bower_components/knockout/dist/knockout.js"></script>
+		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
+
+		<link href="/bower_components/font-awesome/css/font-awesome.min.css" type="text/css" rel="stylesheet">
+		<link href="main.css" type="text/css" rel="stylesheet">
+	</head>
+
+	<body>
+		<div id="map-canvas"></div>
+
+		<div id="search-bar" data-bind="css: { 'open': searchBarStatus }">
+            <div class="input">
+                <input type="text" placeholder="filter locations" data-bind="value: filter, valueUpdate: 'keyup', koFocus: searchBarStatus" />
+            </div>
+            <div class="list" data-bind="css: { 'hide': $data.filteredPlaces().length === 0 }">
+                <ul data-bind="foreach: filteredPlaces">
+                    <li>
+                        <a href="#" data-bind="text: name, click: focus"></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+		<button type="button" id="btn-collapse" data-bind="click: changeSearchBarStatus, css: { 'open': searchBarStatus }">
+			<i class="fa fa-search"></i>
+			<i class="fa fa-times"></i>
+		</button>
+
+		<script src="main.js"></script>
+	</body>
+
+</html>

@@ -3,7 +3,7 @@
 ### Getting started
 
 #### How to run
-    cd /path/to/frontend-neighborhood-map
+    cd /path/to/frontend-neighborhood-map/dist
     npm update
     bower update
     grunt
