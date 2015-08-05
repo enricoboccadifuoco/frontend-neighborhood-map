@@ -52,6 +52,12 @@ var View = {
             str += '<li><a href="' + w.url + '">' + w.title + '</a></li>';
         });
 
+        place.setFocusedIcon();
+
+    	google.maps.event.addListener(infowindow, 'closeclick', function() {
+            place.setDefaultIcon();
+    	});
+
         infowindow.setContent(str);
         infowindow.open(map, place.marker);
     }
@@ -72,7 +78,7 @@ var ViewModel = function(){
         self.searchBarStatus(!self.searchBarStatus());
     };
 
-    this.init = function() {
+    self.init = function() {
     	map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
 	    infowindow = new google.maps.InfoWindow(
@@ -129,7 +135,7 @@ var ViewModel = function(){
     });
 
     // main
-    this.init();
+    self.init();
 
     /*
      *  key binding cmd+f to open sidebar list
