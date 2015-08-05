@@ -48,11 +48,11 @@ body {
 }
 
 .search-bar.open {
-    -webkit-transform: translateX(0%);
-    -moz-transform: translateX(0%);
-    -ms-transform: translateX(0%);
-    -o-transform: translateX(0%);
-    transform: translateX(0%);
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+    transform: translateX(0);
 }
 
 .search-bar .input {
@@ -68,7 +68,7 @@ body {
     border: none;
     background-color: transparent;
 
-    border-bottom: 1px solid #000000;
+    border-bottom: 1px solid #000;
 }
 
 .btn.collapse {
@@ -96,7 +96,7 @@ body {
     transition: background 200ms ease;
 
     background-color: #37b5b0;
-    color: #ffffff;
+    color: #fff;
 }
 
 .btn.collapse > i {
@@ -122,11 +122,11 @@ body {
 
     opacity: 1;
 
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    -o-transform: rotate(360deg);
-    transform: rotate(360deg);
+    -webkit-transform: rotate(360);
+    -moz-transform: rotate(360);
+    -ms-transform: rotate(360);
+    -o-transform: rotate(360);
+    transform: rotate(360);
 }
 
 
@@ -161,11 +161,11 @@ body {
 .btn.collapse.open i:last-child {
     opacity: 1;
 
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-    transform: rotate(0deg);
+    -webkit-transform: rotate(0);
+    -moz-transform: rotate(0);
+    -ms-transform: rotate(0);
+    -o-transform: rotate(0);
+    transform: rotate(0);
 }
 
 .search-bar .list {
@@ -182,7 +182,7 @@ body {
     color: rgba(0, 0, 0, 0.4);
     padding: 10px 0;
 
-    border-bottom: 1px solid #dddddd;
+    border-bottom: 1px solid #ddd;
 }
 
 .search-bar .list li:last-child {
@@ -196,5 +196,5 @@ body {
 }
 
 .search-bar .list li a:hover {
-    color: #000000;
+    color: #000;
 }
